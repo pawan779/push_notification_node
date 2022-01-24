@@ -8,6 +8,7 @@ const app = express();
 
 const userRoute = require("./src/route/user");
 const notiRoute = require("./src/route/notification");
+const productRoute = require("./src/route/product");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ mongoose.connection.on("error", (err) => {
 
 app.use("/", userRoute);
 app.use("/", notiRoute);
+app.use("/", productRoute);
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening at http://localhost:${process.env.PORT}`);
